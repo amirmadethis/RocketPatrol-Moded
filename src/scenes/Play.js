@@ -24,7 +24,7 @@ class Play extends Phaser.Scene {
 
         // white borders
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0x90F1FF).setOrigin(0, 0);
-        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFF21F).setOrigin(0, 0);
+        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x510000).setOrigin(0, 0);
         this.add.rectangle(0, 0, borderUISize, game.config.height, 0x90F1FF).setOrigin(0, 0);
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x90F1FF).setOrigin(0, 0);
 
