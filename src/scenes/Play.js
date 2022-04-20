@@ -77,9 +77,19 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or ← for Menu', scoreConfig).setOrigin(0.5);
             this.gameOver = true;
         }, null, this);
+
+        this.timeRemain = game.settings.gameTimer;
+        this.jack = this.add.text(borderUISize + 525, borderUISize + borderPadding*2, this.timeRemain, scoreConfig);
     }
 
     update() {
+
+        if(this.timeRemain - 16 >= 16)
+            this.timeRemain -= 16.5;
+
+        this.jack.text = (this.timeRemain / 1000).toFixed(0);
+
+
         // check key input for restart
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
