@@ -9,7 +9,7 @@ The following was done step by step starting from cloning the original game from
 ## Redesign the game's artwork, UI, and sound to change its theme/aesthetic (60)
 - A new background was created for the game from scratch using Procreate.  (Artwork was done by me)
 - A new sprite was created for the spaceship.png to represent itself as a ship. (Artwork was done by me)
-- A new sprite was created for the rocket.png to represent itself as a TNT bomb. (Artwork was done by me)
+- A new sprite was created for the rocket.png to represent itself as a TNT bomb. (Artwork was done by mye)
 - explosion.png was redesigned changing the appearance of the game using a colder color pallet.
 - Rocket shot sound was replaced by the cropped version of the following .wav file: https://freesound.org/people/EverHeat/sounds/208748/
 - explosion sound was replaced by the cropped version of the following .wav file: https://freesound.org/people/derplayer/sounds/587179/
@@ -17,8 +17,11 @@ The following was done step by step starting from cloning the original game from
 - Menu colors are completly different now and the title of the game is changed to the 'GOLDEN CASTEL' with a biref story about the game.
 
 ## Implement the speed increase that happens after 30 seconds in the original game (5)
-- I added a few if statements which increases the speed of the boats to 5, 6, 7 (in order of low to high)
+- Added a few if statements which increases the speed of the boats to 5, 6, 7 (in order of low to high)
 
 ## Display the time remaining (in seconds) on the screen (10)
-- I created a new varaible to keep track of the time starting initially from the given starting time and reducing it over time.
+- Created a new varaible to keep track of the time starting initially from the given starting time and reducing it over time.
 
+## Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (20)
+- A new spaceship type variable named goldbar was created that is worth 100 points and moves really fast.
+- Created a new goldex.png to represent the gold exploding and implemented in the game. (Art work was done by myself)
