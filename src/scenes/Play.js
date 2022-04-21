@@ -21,7 +21,6 @@ class Play extends Phaser.Scene {
         //this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x510000).setOrigin(0, 0);
         //this.add.rectangle(0, 100, 100, 100, 0x510000).setOrigin(0, 0);
 
-
         // white borders
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0x90F1FF).setOrigin(0, 0);
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x510000).setOrigin(0, 0);
@@ -78,17 +77,26 @@ class Play extends Phaser.Scene {
             this.gameOver = true;
         }, null, this);
 
+        // Display time remaining
         this.timeRemain = game.settings.gameTimer;
         this.jack = this.add.text(borderUISize + 525, borderUISize + borderPadding*2, this.timeRemain, scoreConfig);
     }
 
     update() {
 
+        // Calculate and display the time remaining
         if(this.timeRemain - 16 >= 16)
             this.timeRemain -= 16.5;
 
         this.jack.text = (this.timeRemain / 1000).toFixed(0);
 
+        // Update the game speed at halftime
+        if(this.timeRemain < (game.settings.gameTimer / 2))
+        {
+            this.ship01.moveSpeed = 7;
+            this.ship02.moveSpeed = 6;
+            this.ship03.moveSpeed = 5;
+        }
 
         // check key input for restart
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
@@ -111,12 +119,14 @@ class Play extends Phaser.Scene {
         // check collisions for each spaceship (x3)
         if(this.checkCollision(this.p1Rocket, this.ship03)) {
             this.p1Rocket.reset();
-            this.shipExplode(this.ship03);   
+            this.shipExplode(this.ship03);
         }
+
         if (this.checkCollision(this.p1Rocket, this.ship02)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship02);
         }
+
         if (this.checkCollision(this.p1Rocket, this.ship01)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
